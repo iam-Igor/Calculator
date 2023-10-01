@@ -30,7 +30,7 @@ const addEventToNumbers = function () {
       if (!isfirstNum) {
         firstNumbertext += number.toString();
         firstNumber.innerText = firstNumbertext;
-        isfirstNum = true;
+        isfirstNum = false;
       }
       if (
         operators.innerText === "+" ||
@@ -38,6 +38,7 @@ const addEventToNumbers = function () {
         operators.innerText === "/" ||
         operators.innerText === "x"
       ) {
+        isfirstNum = true;
         secondNumbertext += number.toString();
         secondNumber.innerText = secondNumbertext;
       }
