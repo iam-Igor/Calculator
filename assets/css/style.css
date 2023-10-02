@@ -51,6 +51,10 @@
   height: 50px;
 }
 
+#operatorDisplay {
+  font-size: 1.2em;
+}
+
 #operators div:hover {
   background-color: darkslategray;
   color: white;

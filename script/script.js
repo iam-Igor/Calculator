@@ -1,24 +1,16 @@
 const displayViewer = document.getElementById("display");
 
-const sum = document.getElementById("sum");
-const diff = document.getElementById("diff");
-const multiply = document.getElementById("molt");
-const divided = document.getElementById("divided");
-
-const arrayOfNumbers = [7, 8, 9, 4, 5, 6, 3, 2, 1, 0];
-
 const dotSymbol = document.getElementById("dot");
 const deleteSymbol = document.getElementById("delete");
 const equal = document.getElementById("equal");
 
 const allNumbers = document.querySelectorAll(".number-chosen");
-const operators = document.getElementById("operators2");
+
+const operators = document.getElementsByClassName("operators2");
+const operatorsDisplay = document.getElementById("operatorsDisplay");
 
 let firstNumber = document.getElementById("num1");
 let secondNumber = document.getElementById("num2");
-
-let firstNumbertext = "";
-let secondNumbertext = "";
 
 let isfirstNum = false;
 
@@ -28,19 +20,56 @@ const addEventToNumbers = function () {
       const number = parseInt(allNumbers[i].innerText);
 
       if (!isfirstNum) {
-        firstNumbertext += number.toString();
-        firstNumber.innerText = firstNumbertext;
-        isfirstNum = false;
-      }
-      if (
-        operators.innerText === "+" ||
-        operators.innerText === "-" ||
-        operators.innerText === "/" ||
-        operators.innerText === "x"
-      ) {
+        firstNumber.innerText += number;
         isfirstNum = true;
-        secondNumbertext += number.toString();
-        secondNumber.innerText = secondNumbertext;
+      }
+
+      for (let x = 0; x < operators.length; x++) {
+        operators[x].addEventListener("click", function () {
+          operatorsDisplay.innerText = operators[x].innerText;
+        });
+
+        if (
+          operatorsDisplay.innerText === "+" ||
+          operatorsDisplay.innerText === "-" ||
+          operatorsDisplay.innerText === "x" ||
+          operatorsDisplay.innerText === "/"
+        ) {
+          secondNumber.innerText = number;
+        }
+      }
+      if (operatorsDisplay.innerText === "+") {
+        equal.addEventListener("click", function () {
+          let result =
+            parseInt(firstNumber.innerText) + parseInt(secondNumber.innerText);
+          firstNumber.innerText = result;
+          operatorsDisplay.innerText = "";
+          secondNumber.innerText = "";
+        });
+      } else if (operatorsDisplay.innerText === "-") {
+        equal.addEventListener("click", function () {
+          let result =
+            parseInt(firstNumber.innerText) - parseInt(secondNumber.innerText);
+          firstNumber.innerText = result;
+          operatorsDisplay.innerText = "";
+          secondNumber.innerText = "";
+        });
+      } else if (operatorsDisplay.innerText === "x") {
+        equal.addEventListener("click", function () {
+          let result =
+            parseInt(firstNumber.innerText) * parseInt(secondNumber.innerText);
+          firstNumber.innerText = result;
+          operatorsDisplay.innerText = "";
+          secondNumber.innerText = "";
+        });
+      } else if (operatorsDisplay.innerText === "/") {
+        equal.addEventListener("click", function () {
+          let result =
+            parseInt(firstNumber.innerText) / parseInt(secondNumber.innerText);
+          firstNumber.innerText = result;
+          operatorsDisplay.innerText = "";
+          secondNumber.innerText = "";
+        });
       }
     });
   }
@@ -53,20 +82,4 @@ dotSymbol.addEventListener("click", function () {
 
 deleteSymbol.addEventListener("click", function () {
   displayViewer.innerText = "";
-});
-
-sum.addEventListener("click", function () {
-  operators.innerText += sum.innerText;
-});
-
-diff.addEventListener("click", function () {
-  operators.innerText += diff.innerText;
-});
-
-multiply.addEventListener("click", function () {
-  operators.innerText += multiply.innerText;
-});
-
-divided.addEventListener("click", function () {
-  operators.innerText += divided.innerText;
 });
