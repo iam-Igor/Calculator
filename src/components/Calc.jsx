@@ -78,18 +78,18 @@ const Calc = () => {
   };
 
   return (
-    <Container className="px-5 mt-5 vh-100 d-flex flex-column align-items-center justify-content-start">
-      <h1 className="mb-4">Calculator App</h1>
+    <Container className="px-5 mt-5 d-flex flex-column align-items-center justify-content-start">
+      <h1 className="mb-4 text-white fw-bold">Calculator App</h1>
       <Row className="calc-body pt-3 shadow-btm z-1 bg-white">
         <Col className="display rounded-1">
-          <h1 className="text m-0">{operation}</h1>
+          <h1 className="text m-0 result">{operation}</h1>
         </Col>
         <Col className="operators px-md-4">
           {operators.map((sy, i) => {
             return (
               <div
                 key={i}
-                className="operators2 rounded-3 shadow-btm"
+                className="operators2 rounded-3 shadow-btm pointer"
                 onClick={() => {
                   showNumbers(sy.toString());
                 }}
@@ -105,7 +105,7 @@ const Calc = () => {
               return (
                 <div
                   key={i}
-                  className="rounded-3 shadow-btm"
+                  className="rounded-3 shadow-btm pointer"
                   onClick={() => {
                     showNumbers(n.toString());
                   }}
@@ -116,7 +116,7 @@ const Calc = () => {
             })}
 
             <div
-              className="shadow-btm rounded-3"
+              className="shadow-btm rounded-3 pointer"
               onClick={() => {
                 showNumbers(".");
               }}
@@ -124,7 +124,7 @@ const Calc = () => {
               .
             </div>
             <div
-              className="shadow-btm rounded-3"
+              className="shadow-btm rounded-3 pointer"
               onClick={() => SetOperation("0")}
             >
               C
