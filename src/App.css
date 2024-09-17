@@ -1,0 +1,197 @@
+.shadow-btm {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.calc-body {
+  width: 450px;
+  height: 458px;
+  border: 2px solid gray;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 2em;
+  border-radius: 15px;
+}
+
+.container {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.display {
+  background-color: #7e8c74;
+  font-size: 2em;
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  align-items: center;
+  border: 1px solid lightgrey;
+  margin-bottom: 1em;
+  width: 400px;
+  height: 60px;
+}
+
+.operators {
+  width: 400px;
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 1em;
+}
+
+.operators div {
+  background-color: lightgray;
+  font-size: 2em;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 80px;
+  height: 50px;
+}
+
+.operatorsDisplay {
+  font-size: 1.2em;
+}
+
+.operators div:hover {
+  background-color: darkslategray;
+  color: white;
+}
+
+.numb-equal {
+  width: 400px !important;
+  height: 300px !important;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.numb {
+  display: flex;
+  flex-wrap: wrap;
+  width: 295px;
+  justify-content: space-between;
+}
+
+.numb div {
+  font-size: 1.2em;
+  background-color: whitesmoke;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 80px;
+  height: 50px;
+}
+
+.numb div:hover {
+  background-color: lightgray;
+}
+
+.equal {
+  font-size: 1.8em;
+  background-color: #4e8ffe;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 275px;
+  width: 80px;
+  color: white;
+}
+
+.equal:hover {
+  background-color: darkblue;
+}
+
+@media screen and (max-width: 480px) {
+  .calc-body {
+    width: 340px;
+    height: 428px;
+    border: 1.8px solid gray;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 2em;
+    border-radius: 15px;
+  }
+
+  .display {
+    background-color: #7e8c74;
+    font-size: 1.3em;
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    align-items: center;
+    border: 1px solid lightgrey;
+    margin-bottom: 0.5em;
+    width: 300px !important;
+    height: 10px !important;
+  }
+
+  .operators {
+    width: 320px !important;
+    height: 10px !important;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .operators div {
+    background-color: lightgray;
+    font-size: 2em;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 70px;
+    height: 50px;
+  }
+
+  #operatorsDisplay {
+    font-size: 1em;
+  }
+
+  .numb-equal {
+    width: 320px !important;
+    height: 270px !important;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .numb {
+    display: flex;
+    flex-wrap: wrap;
+    width: 295px;
+    justify-content: space-between;
+  }
+
+  .numb div {
+    font-size: 1.2em;
+    background-color: whitesmoke;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 70px;
+    height: 50px;
+  }
+
+  .equal {
+    font-size: 1.8em;
+    background-color: #4e8ffe;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 248px;
+    width: 70px;
+    color: white;
+  }
+}
