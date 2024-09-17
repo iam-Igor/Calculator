@@ -29,6 +29,8 @@ const Calc = () => {
       console.log("Troppi simboli");
       SetError(true);
       return;
+    } else {
+      return true;
     }
   };
 
