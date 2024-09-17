@@ -8,7 +8,7 @@ const Calc = () => {
   const [error, SetError] = useState(false);
 
   const check = () => {
-    const symbols = /[-/*+]/g;
+    const symbols = /[-/x+]/g;
     const symbolsInTheOperation = operation.match(symbols);
 
     const newArraySy = Array.from(operators);
@@ -35,8 +35,8 @@ const Calc = () => {
   };
 
   const calculate = () => {
-    const [left, right] = operation.split(/[-/*+]/);
-    const symbol = operation.match(/[-/*+]/)?.[0];
+    const [left, right] = operation.split(/[-/x+]/);
+    const symbol = operation.match(/[-/x+]/)?.[0];
     let result = 0;
 
     if (check()) {
