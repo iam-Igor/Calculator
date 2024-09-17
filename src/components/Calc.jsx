@@ -44,19 +44,19 @@ const Calc = () => {
         switch (symbol) {
           case "+":
             result = parseFloat(left) + parseFloat(right);
-            SetOperation(result.toString());
+            SetOperation(result.toFixed(2).toString());
             break;
           case "-":
             result = parseFloat(left) - parseFloat(right);
-            SetOperation(result.toString());
+            SetOperation(result.toFixed(2).toString());
             break;
           case "x":
             result = parseFloat(left) * parseFloat(right);
-            SetOperation(result.toString());
+            SetOperation(result.toFixed(2).toString());
             break;
           case "/":
             result = parseFloat(left) / parseFloat(right);
-            SetOperation(result.toString());
+            SetOperation(result.toFixed(2).toString());
             break;
           default:
             return result;
