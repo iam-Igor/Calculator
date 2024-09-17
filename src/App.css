@@ -30,8 +30,8 @@
   align-items: center;
   border: 1px solid lightgrey;
   margin-bottom: 1em;
-  width: 400px;
-  height: 60px;
+  width: 420px !important;
+  height: 40px;
 }
 
 .operators {

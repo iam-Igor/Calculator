@@ -80,7 +80,7 @@ const Calc = () => {
         <Col className="display">
           <h1 className="text">{operation}</h1>
         </Col>
-        <Col className="operators">
+        <Col className="operators px-md-4">
           {operators.map((sy, i) => {
             return (
               <div
