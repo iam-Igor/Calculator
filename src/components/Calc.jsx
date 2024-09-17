@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Alert, Button, Col, Container, Row } from "react-bootstrap";
+import { Alert, Button, Col, Container, Fade, Row } from "react-bootstrap";
 
 const Calc = () => {
   const numbers = [7, 8, 9, 4, 5, 6, 1, 2, 3, 0];
@@ -7,14 +7,6 @@ const Calc = () => {
   const [operation, SetOperation] = useState("0");
   const [error, SetError] = useState(false);
   const [errorText, SetErrorText] = useState("");
-
-  const setTheError = () => {
-    SetError(true);
-    setTimeout(() => {
-      SetError(false);
-      SetOperation("0");
-    }, 2000);
-  };
 
   const check = () => {
     const symbols = /[-/x+]/g;
@@ -27,19 +19,16 @@ const Calc = () => {
     const endsWith = newArraySy.some((value) => operation.endsWith(value));
 
     if (startsWith) {
-      console.log("Devi prima inserire un numero valido");
       SetErrorText("Devi prima inserire un numero valido");
-      setTheError();
+      SetError(true);
       return;
     } else if (endsWith) {
-      console.log("L'operazione non può terminare con un simbolo");
       SetErrorText("L'operazione non può terminare con un simbolo");
-      setTheError();
+      SetError(true);
       return;
     } else if (symbolsInTheOperation && symbolsInTheOperation.length > 1) {
-      console.log("Troppi simboli");
       SetErrorText("Troppi simboli");
-      setTheError();
+      SetError(true);
       return;
     } else {
       return true;
@@ -76,7 +65,7 @@ const Calc = () => {
       } else {
         console.log("mancano numeri");
         SetErrorText("Mancano numeri");
-        setTheError();
+        SetError(true);
       }
     }
   };
@@ -89,10 +78,11 @@ const Calc = () => {
   };
 
   return (
-    <Container className="px-5 mt-5 vh-100 d-flex flex-column align-items-center justify-content-center">
+    <Container className="px-5 mt-5 vh-100 d-flex flex-column align-items-center justify-content-start">
+      <h1 className="mb-4">Calculator App</h1>
       <Row className="calc-body pt-3 shadow-btm z-1 bg-white">
-        <Col className="display">
-          <h1 className="text">{operation}</h1>
+        <Col className="display rounded-1">
+          <h1 className="text m-0">{operation}</h1>
         </Col>
         <Col className="operators px-md-4">
           {operators.map((sy, i) => {
@@ -146,18 +136,21 @@ const Calc = () => {
         </Col>
       </Row>
 
-      <Row
-        className={`justify-content-center mt-2 ${
-          error ? "slide-bottom" : "slide-top"
-        }`}
-      >
+      <Row className={`justify-content-center mt-2`}>
         <Col>
-          <Alert variant="danger">
-            <Alert.Heading className="d-flex justify-content-center">
-              <p>Error!</p>
-            </Alert.Heading>
-            <p>{errorText}</p>
-          </Alert>
+          {error && (
+            <Alert
+              variant="danger"
+              dismissible
+              onClose={() => {
+                SetError(false);
+                SetOperation("0");
+              }}
+            >
+              <Alert.Heading>Error!</Alert.Heading>
+              <p>{errorText}</p>
+            </Alert>
+          )}
         </Col>
       </Row>
     </Container>
