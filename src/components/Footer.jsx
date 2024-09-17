@@ -4,7 +4,7 @@ const Footer = () => {
   const now = new Date();
 
   return (
-    <Container className="bg-black text-white  mt-auto" fluid>
+    <Container className="bg-black text-white  mt-3" fluid>
       <Row className="py-3">
         <Col className="text-center">
           <p>Developed by Ygor Garofalo</p>

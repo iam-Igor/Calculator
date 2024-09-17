@@ -125,7 +125,10 @@ const Calc = () => {
             </div>
             <div
               className="shadow-btm rounded-3 pointer"
-              onClick={() => SetOperation("0")}
+              onClick={() => {
+                SetOperation("0");
+                SetError(false);
+              }}
             >
               C
             </div>
