@@ -20,12 +20,15 @@ const Calc = () => {
     if (startsWith) {
       console.log("Devi prima inserire un numero valido");
       SetError(true);
+      return;
     } else if (endsWith) {
       console.log("L'operazione non può terminare con un simbolo");
       SetError(true);
+      return;
     } else if (symbolsInTheOperation && symbolsInTheOperation.length > 1) {
       console.log("Troppi simboli");
       SetError(true);
+      return;
     }
   };
 
@@ -33,27 +36,31 @@ const Calc = () => {
     const [left, right] = operation.split(/[-/*+]/);
     const symbol = operation.match(/[-/*+]/)?.[0];
     let result = 0;
-    check();
-    if (!error) {
-      switch (symbol) {
-        case "+":
-          result = parseFloat(left) + parseFloat(right);
-          SetOperation(result.toString());
-          break;
-        case "-":
-          result = parseFloat(left) - parseFloat(right);
-          SetOperation(result.toString());
-          break;
-        case "x":
-          result = parseFloat(left) * parseFloat(right);
-          SetOperation(result.toString());
-          break;
-        case "/":
-          result = parseFloat(left) / parseFloat(right);
-          SetOperation(result.toString());
-          break;
-        default:
-          return result;
+
+    if (check()) {
+      if (right && left) {
+        switch (symbol) {
+          case "+":
+            result = parseFloat(left) + parseFloat(right);
+            SetOperation(result.toString());
+            break;
+          case "-":
+            result = parseFloat(left) - parseFloat(right);
+            SetOperation(result.toString());
+            break;
+          case "x":
+            result = parseFloat(left) * parseFloat(right);
+            SetOperation(result.toString());
+            break;
+          case "/":
+            result = parseFloat(left) / parseFloat(right);
+            SetOperation(result.toString());
+            break;
+          default:
+            return result;
+        }
+      } else {
+        console.log("mancano numeri");
       }
     }
   };
